@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function elementMaker (tagName, props, ...children) {
+      const element = document.createElement(tagName);
+
+      Object.keys(props).forEach(function(key){
+
+        element[key] = props[key];
+
+      }); //forEach와 그 안의 Function 끝 
+
+      if (children.length > 0 ) {
+        children.forEach(function(child) {
+
+          if (typeof(child) === "string"){
+
+            child = document.createTextNode(child);
+
+          } //function안의 if문 끝
+
+          element.appendchild(child);
+
+        }); // children.forEach와 그 안의 function 끝
+
+      } //겉 if끝
+
+      return element;
+
+    } //최상단의 function 끝
+
+    // elementMaker('div',)
+  </script>
+</body>
+</html>
